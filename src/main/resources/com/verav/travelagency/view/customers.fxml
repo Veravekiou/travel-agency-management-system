@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.verav.travelagency.controller.CustomersController">
+
+    <VBox spacing="15" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+        <Label styleClass="heading-label" text="Customer Information " />
+
+        <TableView fx:id="customersTable" prefHeight="320" prefWidth="750">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50" text="ID" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="120" text="First Name" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="120" text="Last Name" />
+                <TableColumn fx:id="emailColumn" prefWidth="180.0" text="Email" />
+                <TableColumn fx:id="phoneColumn" prefWidth="144.66665649414062" text="Phone" />
+                <TableColumn fx:id="countryColumn" prefWidth="132.666748046875" text="Country" />
+            </columns>
+        </TableView>
+
+        <Label prefHeight="20.0" prefWidth="731.0" styleClass="content-label" text="You can add, edit or delete a Customer " wrapText="true" />
+    </VBox>
+
+    <!-- Buttons -->
+    <HBox spacing="10" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20">
+        <Button fx:id="addButton" text="Add" />
+        <Button fx:id="editButton" text="Edit" />
+        <Button fx:id="deleteButton" text="Delete" />
+    </HBox>
+
+</AnchorPane>

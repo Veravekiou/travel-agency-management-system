@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.verav.travelagency.controller.TripsController"
+            stylesheets="@../css/style.css">
+
+    <VBox spacing="15" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+        <Label styleClass="heading-label" text="Travel information " />
+
+        <TableView fx:id="tripsTable" prefHeight="350" prefWidth="750">
+            <columns>
+                <TableColumn fx:id="tripIdColumn" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="destinationColumn" text="Destination" prefWidth="150"/>
+                <TableColumn fx:id="departureColumn" text="Departure Date" prefWidth="130"/>
+                <TableColumn fx:id="returnColumn" text="Return Date" prefWidth="130"/>
+                <TableColumn fx:id="priceColumn" text="Price (EUR)" prefWidth="100"/>
+                <TableColumn fx:id="seatsColumn" text="Available Seats" prefWidth="120"/>
+            </columns>
+        </TableView>
+
+        <Label styleClass="content-label"
+               text="You can add, edit or delete a trip"
+               wrapText="true"
+               prefHeight="20" prefWidth="731"/>
+
+    </VBox>
+
+    <HBox spacing="10" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20">
+        <Button text="Add" fx:id="addButton" />
+        <Button text="Edit" fx:id="editButton" />
+        <Button text="Delete" fx:id="deleteButton" />
+    </HBox>
+
+</AnchorPane>

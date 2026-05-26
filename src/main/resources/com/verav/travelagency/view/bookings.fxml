@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.verav.travelagency.controller.BookingsController"
+            stylesheets="@../css/style.css">
+
+    <VBox spacing="15" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+        <Label styleClass="heading-label" text="Booking History " />
+        <Label styleClass="content-label" text="Add New Booking" />
+        <HBox spacing="10">
+
+            <ComboBox fx:id="customerCombo" promptText="Select Customer" prefWidth="180"/>
+            <ComboBox fx:id="tripCombo" promptText="Select Destination" prefWidth="180"/>
+            <DatePicker fx:id="bookingDatePicker" promptText="Booking Date"/>
+            <Button text="Add" onAction="#addBooking"/>
+            <Button text="Delete" onAction="#deleteBooking"/>
+        </HBox>
+
+
+        <TableView fx:id="bookingsTable" editable="true">
+            <columns>
+                <TableColumn fx:id="bookingIdColumn" text="ID" prefWidth="40"/>
+                <TableColumn fx:id="customerNameColumn" text="Customer" prefWidth="120"/>
+                <TableColumn fx:id="tripDescColumn" text="Destination" prefWidth="150"/>
+                <TableColumn fx:id="bookingDateColumn" text="Booking Date" prefWidth="100"/>
+                <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="140"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+
+</AnchorPane>
+

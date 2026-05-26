@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.verav.travelagency.controller.HomeController">
+
+    <center>
+        <VBox spacing="18" style="-fx-background-color: #f6f8fa;">
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20 30 0 30;">
+                <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Travel Agency Management System" />
+                <Pane HBox.hgrow="ALWAYS" />
+                <Label fx:id="dateLabel" />
+                <Label fx:id="userLabel" style="-fx-font-weight: bold;" />
+            </HBox>
+
+            <!-- Booking summary metrics -->
+            <HBox alignment="CENTER_LEFT" spacing="18" style="-fx-padding: 0 30 0 30;">
+                <VBox style="-fx-background-color: #fff; -fx-padding: 18; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <Label style="-fx-font-size: 13px;" text="Confirmed Bookings" />
+                    <Label fx:id="confirmedBookingsLabel" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+                </VBox>
+
+
+                <VBox style="-fx-background-color: #fff; -fx-padding: 18; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <Label style="-fx-font-size: 13px;" text="Bookings in pending" />
+                    <Label fx:id="pendingBookingsLabel" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+                </VBox>
+                <VBox style="-fx-background-color: #fff; -fx-padding: 18; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <Label style="-fx-font-size: 13px;" text="Popular destinations" />
+                    <Label fx:id="popularDestinationsLabel" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                </VBox>
+            </HBox>
+
+            <!-- Popular destinations chart -->
+            <VBox spacing="8" style="-fx-padding: 0 30 0 30;">
+                <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Popular Destinations Chart" />
+                <AreaChart fx:id="popularDestinationsChart" prefHeight="400" prefWidth="700">
+                    <xAxis>
+                        <CategoryAxis label="Destinations" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Bookings" />
+                    </yAxis>
+                </AreaChart>
+            </VBox>
+
+
+
+        </VBox>
+    </center>
+</BorderPane>
