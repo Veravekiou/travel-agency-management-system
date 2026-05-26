@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import com.verav.travelagency.model.Booking;
 import com.verav.travelagency.services.DBService;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -39,8 +40,9 @@ public class HomeController extends BaseController {
     // Load all bookings from the database into the bookings list
     private void loadBookings() {
         bookings.clear();
-        try {
-            ResultSet rs = DBService.executeQuery("SELECT * FROM bookings");
+        String sql = "SELECT * FROM bookings";
+        try (PreparedStatement stmt = DBService.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 bookings.add(new Booking(
                         rs.getInt("booking_id"),
@@ -58,8 +60,9 @@ public class HomeController extends BaseController {
     // Load trip destinations from the database into a map (trip_id -> destination)
     private void loadTripsMap() {
         tripDestinations.clear();
-        try {
-            ResultSet rs = DBService.executeQuery("SELECT trip_id, destination FROM trips");
+        String sql = "SELECT trip_id, destination FROM trips";
+        try (PreparedStatement stmt = DBService.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 tripDestinations.put(rs.getInt("trip_id"), rs.getString("destination"));
             }
@@ -119,4 +122,3 @@ public class HomeController extends BaseController {
         popularDestinationsChart.getData().add(series);
     }
 }
-

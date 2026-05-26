@@ -92,8 +92,9 @@ public class BookingsController extends BaseController {
     // Load customer names from database into the map
     private void loadCustomersMap() {
         customerNames.clear();
-        try {
-            ResultSet rs = DBService.executeQuery("SELECT customer_id, first_name, last_name FROM customers");
+        String sql = "SELECT customer_id, first_name, last_name FROM customers";
+        try (PreparedStatement stmt = DBService.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 int id = rs.getInt("customer_id");
                 String name = rs.getString("first_name") + " " + rs.getString("last_name");
@@ -107,8 +108,9 @@ public class BookingsController extends BaseController {
     // Load trip descriptions from database into the map
     private void loadTripsMap() {
         tripDescriptions.clear();
-        try {
-            ResultSet rs = DBService.executeQuery("SELECT trip_id, destination FROM trips");
+        String sql = "SELECT trip_id, destination FROM trips";
+        try (PreparedStatement stmt = DBService.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 int id = rs.getInt("trip_id");
                 String desc = rs.getString("destination");
@@ -212,8 +214,9 @@ public class BookingsController extends BaseController {
     // Load all bookings from the database into the observable list
     private void loadBookingsFromDB() {
         bookings.clear();
-        try {
-            ResultSet rs = DBService.executeQuery("SELECT * FROM bookings");
+        String sql = "SELECT * FROM bookings";
+        try (PreparedStatement stmt = DBService.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 bookings.add(new Booking(
                         rs.getInt("booking_id"),

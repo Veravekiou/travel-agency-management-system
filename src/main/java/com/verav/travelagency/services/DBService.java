@@ -33,14 +33,6 @@ public class DBService {
         return connection;
     }
 
-    public static ResultSet executeQuery(String sql) throws SQLException {
-        Statement stmt = getConnection().createStatement();
-        return stmt.executeQuery(sql);
-    }
-
-
-
-
 }
 
 

@@ -55,8 +55,9 @@ public class CustomersController extends BaseController {
     // Load all customers from the database
     private void loadCustomersFromDB() {
         customers.clear();
-        try {
-            ResultSet rs = DBService.executeQuery("SELECT * FROM customers");
+        String sql = "SELECT * FROM customers";
+        try (PreparedStatement stmt = DBService.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 int id = rs.getInt("customer_id");
                 String firstName = rs.getString("first_name");

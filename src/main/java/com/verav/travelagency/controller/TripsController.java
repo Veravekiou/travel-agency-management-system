@@ -54,8 +54,9 @@ public class TripsController extends BaseController {
     // Load all trips from the database
     private void loadTripsFromDB() {
         trips.clear();
-        try {
-            ResultSet rs = DBService.executeQuery("SELECT * FROM trips");
+        String sql = "SELECT * FROM trips";
+        try (PreparedStatement stmt = DBService.getConnection().prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 trips.add(new Trip(
                         rs.getInt("trip_id"),
