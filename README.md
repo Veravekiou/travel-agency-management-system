@@ -115,25 +115,7 @@ mvnw.cmd javafx:run -DDB_URL=jdbc:mariadb://localhost:3306/agency_db -DDB_USER=r
 
 ## Screenshots
 
-Add screenshots here before publishing the repository as a portfolio project.
-
-Suggested files:
-
-```text
-docs/screenshots/dashboard.png
-docs/screenshots/customers.png
-docs/screenshots/trips.png
-docs/screenshots/bookings.png
-```
-
-Example Markdown:
-
-```md
 ![Dashboard](docs/screenshots/dashboard.png)
-![Customers](docs/screenshots/customers.png)
-![Trips](docs/screenshots/trips.png)
-![Bookings](docs/screenshots/bookings.png)
-```
 
 ## Notes
 
@@ -146,5 +128,5 @@ Example Markdown:
 ## Future Improvements
 
 - Add integration tests for booking seat updates with a test database
-- Add screenshots or a short demo video for portfolio presentation
+- Add a short demo video for portfolio presentation
 - Add richer error handling for database connection failures
