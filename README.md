@@ -115,10 +115,7 @@ mvnw.cmd javafx:run -DDB_URL=jdbc:mariadb://localhost:3306/agency_db -DDB_USER=r
 
 ## Screenshots
 
-![Dashboard](docs/screenshots/dashboard.png)
-![Customers](docs/screenshots/customers.png)
-![Trips](docs/screenshots/trips.png)
-![Bookings](docs/screenshots/bookings.png)
+Screenshots will be added before the final portfolio presentation.
 
 ## Notes
 
